@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
+import FeedbackList from "./component/FeedbackList";
+import { Navigate, Route, Routes } from "react-router-dom";
+import FeedbackForm from "./component/FeedbackForm";
+const DUMMY_DATA = []
 function App() {
+  const dataHandler = (data) => {
+    DUMMY_DATA.push(data);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Navigate to='/login'/>} />
+        <Route path="/admin" element={<FeedbackList DUMMY_DATA={DUMMY_DATA} />}/>
+        <Route path="/login" element={<FeedbackForm fetchData={dataHandler}/>}/>
+      </Routes>
     </div>
   );
 }

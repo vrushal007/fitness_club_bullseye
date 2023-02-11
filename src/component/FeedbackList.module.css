@@ -1,0 +1,11 @@
+.bgImg{
+    width: 100%;
+    height: 100%;
+    background: url('../assets/bg_img.jpg');
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px;
+}
